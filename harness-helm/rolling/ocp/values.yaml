@@ -1,8 +1,10 @@
 replicaCount: 2
 
+dockerconfigjson: "<+artifact.dockerConfigJsonSecret>"
+
 image:
-  repository: ghcr.io/parvezahmad/harness-seeker-demo
-  tag: "1.0.100"
+  repository: "<+artifact.imagePath>"
+  tag: "<+artifact.tag>"
   pullPolicy: Always
 
 environment: dev
