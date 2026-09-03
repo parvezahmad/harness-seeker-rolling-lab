@@ -1,11 +1,8 @@
 replicaCount: 2
 
-dockerconfigjson: "<+artifact.dockerConfigJsonSecret>"
+dockerconfigjson: "<+artifacts.primary.dockerConfigJsonSecret>"
 
-image:
-  repository: "<+artifact.imagePath>"
-  tag: "<+artifact.tag>"
-  pullPolicy: Always
+image: "<+artifacts.primary.image>"
 
 environment: dev
 

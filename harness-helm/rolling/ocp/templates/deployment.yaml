@@ -24,8 +24,8 @@ spec:
 
       containers:
         - name: harness-seeker-demo
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          image: "{{ .Values.image }}"
+          imagePullPolicy: Always
 
           ports:
             - name: http
@@ -33,7 +33,7 @@ spec:
 
           env:
             - name: APP_VERSION
-              value: "{{ .Values.image.tag }}"
+              value: "<+artifacts.primary.tag>"
 
             - name: ENVIRONMENT
               value: "{{ .Values.environment }}"
